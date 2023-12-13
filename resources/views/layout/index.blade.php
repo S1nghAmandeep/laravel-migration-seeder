@@ -2,5 +2,11 @@
 
 @section('content')
     
-hello worlddddd
+<section>
+    @forelse ($trains as $train)
+        <h1>{{ $train->company }}</h1>
+    @empty
+        
+    @endforelse
+</section>
 @endsection
