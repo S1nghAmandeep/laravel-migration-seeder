@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('company', 50);
             $table->string('departure_station', 100);
-            $table->string('arrival_station');
+            $table->string('arrival_station', 100);
             $table->time('departure_time');
             $table->time('arrival_time');
-            $table->smallInteger('train_code')->unique();
-            $table->tinyInteger('currage_number')->unique();
+            $table->mediumInteger('train_code')->unique();
+            $table->tinyInteger('currage_number');
             $table->time('in_time');
-            $table->string('canceled')->default(0);
+            $table->string('canceled', 20)->default(0);
             $table->float('price', 8, 2);
             $table->timestamps();
         });
