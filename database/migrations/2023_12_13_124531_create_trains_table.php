@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('trains', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('company');
+            $table->string('company', 50);
             $table->string('departure_station', 100);
             $table->string('arrival_station');
             $table->time('departure_time');
@@ -21,7 +21,8 @@ return new class extends Migration
             $table->smallInteger('train_code')->unique();
             $table->tinyInteger('currage_number')->unique();
             $table->time('in_time');
-            $table->string('status')->default(0);
+            $table->string('canceled')->default(0);
+            $table->float('price', 8, 2);
             $table->timestamps();
         });
     }
