@@ -15,7 +15,7 @@ class TrainsTableSeeder extends Seeder
     public function run(Faker $faker): void
     {
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 50; $i++) {
             $newTrain = new Train();
 
             $newTrain->company = $faker->company();
@@ -29,8 +29,13 @@ class TrainsTableSeeder extends Seeder
 
             $newTrain->train_code = $faker->bothify('#####');
             $newTrain->currage_number = $faker->numberBetween(1, 40);
-            $newTrain->in_time = $faker->numberBetween(0, 1);
-            $newTrain->canceled = $faker->numberBetween(0, 1);
+            $canceled = $faker->boolean();
+            if ($canceled === true) {
+                $newTrain->in_time = false;
+            } else {
+                $newTrain->in_time = $faker->boolean();
+            }
+            $newTrain->canceled = $canceled;
             $newTrain->price = $faker->randomFloat(2, 1, 1000);
 
             $newTrain->save();
