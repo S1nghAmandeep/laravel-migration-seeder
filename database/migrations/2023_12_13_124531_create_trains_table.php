@@ -20,8 +20,8 @@ return new class extends Migration
             $table->dateTime('arrival_time');
             $table->mediumInteger('train_code')->unique();
             $table->tinyInteger('currage_number');
-            $table->string('in_time', 10)->default(1);
-            $table->string('canceled', 20)->default(0);
+            $table->boolean('in_time')->default(true);
+            $table->boolean('canceled')->default(false);
             $table->float('price', 8, 2);
             $table->timestamps();
         });
