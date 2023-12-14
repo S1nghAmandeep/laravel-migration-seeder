@@ -13,8 +13,8 @@ class PageController extends Controller
     {
 
         // $trains = Train::all();
-        // $trains = Train::where('departure_time', '>=', Carbon::now())->get();
-        $trains = Train::where('departure_time', 'like', '2023-12-13%')->get();
+        $trains = Train::where('departure_time', '>=', Carbon::now())->get();
+        // $trains = Train::where('departure_time', 'like', '2023-12-13%')->get();
         return view('layout.index', compact('trains'));
     }
 }
